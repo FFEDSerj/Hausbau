@@ -204,9 +204,16 @@ if (iconMenu != null) {
 function menu_close() {
   let iconMenu = document.querySelector(".icon-menu");
   let menuBody = document.querySelector(".menu__body");
-  iconMenu.classList.remove("_active");
-  menuBody.classList.remove("_active");
+  let wrapper = document.querySelector(".page__wrapper");
+  wrapper.addEventListener("click", function (e) {
+    if (menuBody.classList.contains("_active")) {
+      iconMenu.classList.remove("_active");
+      menuBody.classList.remove("_active");
+    }
+  });
 }
+
+menu_close();
 //=================
 //BodyLock
 function body_lock(delay) {
